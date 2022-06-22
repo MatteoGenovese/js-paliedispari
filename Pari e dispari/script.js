@@ -8,7 +8,7 @@
 function getEvenOrOdds(){
     let userEvenOrOdds=prompt("scegli pari [p] o dispari [d]");
     while((userEvenOrOdds!=="p" ) && (userEvenOrOdds!=="d"))
-        userEvenOrOdds=prompt("scegli [P] o [D]");
+        userEvenOrOdds=prompt("scegli [p] o [d]");
     return userEvenOrOdds;
 }
 
