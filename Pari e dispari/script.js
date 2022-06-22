@@ -6,7 +6,39 @@
 // Dichiariamo chi ha vinto.
 
 function getEvenOrOdds(){
-    let userEvenOrOdds=prompt("scegli pari /[P/] o dispari /[D/]")
-    while(userEvenOrOdds=="P" || userEvenOrOdds=="D")
-    return prompt("inserisci una parola");
+    let userEvenOrOdds=prompt("scegli pari [p] o dispari [d]");
+    while((userEvenOrOdds!=="p" ) && (userEvenOrOdds!=="d"))
+        userEvenOrOdds=prompt("scegli [P] o [D]");
+    return userEvenOrOdds;
 }
+
+function getAUserNumber(){
+    let userNumber= parseInt(prompt("inserisci un numero da 1 a 5"));
+    while(userNumber<1 && userNumber>5)
+        userNumber=parseInt(prompt("ho detto da 1 a 5"));
+    return userNumber;
+}
+function getAPcNumber(){
+    return Math.floor(Math.random() * (5 - 1)) + 1;
+}
+function getResult(userNumber,pcNumber, userEvenOrOdds){
+    if (((userNumber+pcNumber)%2==0 && userEvenOrOdds=="p") || ((userNumber+pcNumber)%2!=0 && userEvenOrOdds=="d"))
+        return `l'utente ha vinto 
+        scelta pari o dispari utente: ${userEvenOrOdds}
+        numero utente: ${userNumber}
+        numero pc: ${pcNumber}
+        `;
+    else
+        return `il pc ha vinto        
+        scelta pari o dispari utente: ${userEvenOrOdds}
+        numero utente: ${userNumber}
+        numero pc: ${pcNumber}
+        `;
+}
+
+
+const userEvenOrOdds=getEvenOrOdds();
+const userNumber=getAUserNumber();
+const pcNumber=getAPcNumber();
+console.log(getResult(userNumber,pcNumber, userEvenOrOdds));
+
